@@ -50,6 +50,8 @@
     <Compile Include="Liquipedia\Bracket16SE.cs" />
     <Compile Include="Indexing.cs" />
     <Compile Include="Bag.cs" />
+    <Compile Include="Liquipedia\LiquipediaClient.cs" />
+    <Compile Include="Liquipedia\Parsing\Parsing.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Tlpd\TlpdClient.cs" />
     <Compile Include="Tlpd\TlpdEntity.cs" />

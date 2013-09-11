@@ -1,5 +1,5 @@
 ﻿
-Microsoft Visual Studio Solution File, Format Version 12.00
+Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual Studio 2012
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LxToolsBase", "LxToolsBase\LxToolsBase.csproj", "{B9B875FA-C165-47CC-B4B1-931EAEA3DEC0}"
 EndProject
