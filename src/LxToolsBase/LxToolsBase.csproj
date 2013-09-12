@@ -46,6 +46,8 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleEx.cs" />
+    <Compile Include="ListUtils.cs" />
+    <Compile Include="DictionaryUtils.cs" />
     <Compile Include="Liquipedia\BracketLine.cs" />
     <Compile Include="Liquipedia\Bracket16SE.cs" />
     <Compile Include="Indexing.cs" />
@@ -56,7 +58,7 @@
     <Compile Include="Tlpd\TlpdClient.cs" />
     <Compile Include="Tlpd\TlpdEntity.cs" />
     <Compile Include="UI.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="StringUtils.cs" />
     <Compile Include="Liquipedia\TemplateWriter.cs" />
   </ItemGroup>
   <ItemGroup>

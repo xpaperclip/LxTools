@@ -5,18 +5,6 @@ using System.Windows.Forms;
 
 namespace LxTools
 {
-    public class UIDocument
-    {
-        public UIDocument(string title, string text)
-        {
-            this.Title = title;
-            this.Text = text;
-        }
-
-        public string Title { get; set; }
-        public string Text { get; set; }
-    }
-
     public static class UI
     {
         public static DialogResult InputBox(string title, string prompt, ref string value)
@@ -89,11 +77,24 @@ namespace LxTools
                 }
 
                 frm.Font = new Font("Segoe UI", 9);
-                frm.Text = "LpTools";
+                frm.Text = "LxTools";
                 frm.Controls.Add(tabs);
                 frm.Size = new Size(700, 500);
                 frm.ShowDialog();
             }
         }
+    }
+
+    public struct UIDocument
+    {
+        public UIDocument(string title, string text)
+            : this()
+        {
+            this.Title = title;
+            this.Text = text;
+        }
+
+        public string Title { get; set; }
+        public string Text { get; set; }
     }
 }
