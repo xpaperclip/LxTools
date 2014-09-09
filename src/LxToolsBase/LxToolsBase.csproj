@@ -46,6 +46,9 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ConsoleEx.cs" />
+    <Compile Include="Liquipedia\Carno[unused]\CarnoService.cs" />
+    <Compile Include="Liquipedia\Carno[unused]\ICarnoServiceSink.cs" />
+    <Compile Include="Liquipedia\Carno[unused]\Types.cs" />
     <Compile Include="ListUtils.cs" />
     <Compile Include="DictionaryUtils.cs" />
     <Compile Include="Liquipedia\BracketLine.cs" />
@@ -64,7 +67,25 @@
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\12SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\16SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\2SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\32SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\4SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\6SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\8DEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\8LBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\8SEBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\ChallengerBracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\CodeABracket.bracketfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\GameMaps.matchfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\MatchMaps.matchfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\MatchSummary.matchfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\MatchSummaryBo10.matchfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\MatchSummaryBo3.matchfmt" />
+    <EmbeddedResource Include="Liquipedia\Carno[unused]\LPfmt\TeamMatch.matchfmt" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

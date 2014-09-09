@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace LxTools.Liquipedia.Parsing
 {
-    class WikiParser
+    public class WikiParser
     {
         public static List<IWikiItem> Parse(string s, int start, out int idx)
         {
@@ -134,8 +134,8 @@ namespace LxTools.Liquipedia.Parsing
         }
     }
 
-    interface IWikiItem { }
-    class WikiText : IWikiItem
+    public interface IWikiItem { }
+    public class WikiText : IWikiItem
     {
         public WikiText(string Text)
         {
@@ -148,7 +148,7 @@ namespace LxTools.Liquipedia.Parsing
             return this.Text;
         }
     }
-    class WikiComment : IWikiItem
+    public class WikiComment : IWikiItem
     {
         public WikiComment(string Text)
         {
@@ -161,7 +161,7 @@ namespace LxTools.Liquipedia.Parsing
             return this.Text;
         }
     }
-    class WikiTemplate : IWikiItem
+    public class WikiTemplate : IWikiItem
     {
         public readonly List<IWikiItem> Children = new List<IWikiItem>();
         public readonly Dictionary<string, List<IWikiItem>> Params = new Dictionary<string, List<IWikiItem>>();
@@ -180,6 +180,18 @@ namespace LxTools.Liquipedia.Parsing
             }
         }
 
+        public string this[string label]
+        {
+            get { return GetParam(label); }
+        }
+
+        public string GetParam(string label)
+        {
+            if (label == null || !Params.ContainsKey(label)) return null;
+            return (from item in Params[label]
+                    where item is WikiText || item is WikiTemplate
+                    select item.ToString()).FirstOrDefault();
+        }
         public string GetParamText(string label)
         {
             if (label == null || !Params.ContainsKey(label)) return null;
@@ -189,7 +201,7 @@ namespace LxTools.Liquipedia.Parsing
         }
         public WikiTemplate GetParamTemplate(string label, string template)
         {
-            if (!Params.ContainsKey(label)) return null;
+            if (label == null || !Params.ContainsKey(label)) return null;
             return (from item in Params[label]
                     where item is WikiTemplate
                     let templ = item as WikiTemplate

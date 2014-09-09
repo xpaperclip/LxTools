@@ -10,7 +10,7 @@ using System.Runtime.InteropServices;
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("LxTools")]
-[assembly: AssemblyCopyright("© xpaperclip 2013")]
+[assembly: AssemblyCopyright("© xpaperclip 2013-14")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

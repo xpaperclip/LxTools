@@ -47,7 +47,13 @@ namespace LxTools.Liquipedia
         }
         public string IDPlain
         {
-            get { return StringUtils.StripHtmlComments(this.ID).Trim(); }
+            get
+            {
+                if (this.ID == null)
+                    return "";
+                else
+                    return StringUtils.StripHtmlComments(this.ID).Trim();
+            }
         }
 
         public bool IsBye
