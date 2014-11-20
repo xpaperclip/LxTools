@@ -41,28 +41,31 @@ namespace LxTools.Liquipedia
                 }
             }
 
-            // if it's a link, extract the page title
+            string url = "";
             Uri uri;
+            // if it's a link, extract the page title
             if (Uri.TryCreate(page, UriKind.Absolute, out uri) &&
-                uri.Host.ToLower() == "wiki.teamliquid.net" && 
+                uri.Host.ToLower() == "wiki.teamliquid.net" &&
                 uri.AbsolutePath.StartsWith("/starcraft2/"))
             {
                 page = uri.AbsolutePath.Substring("/starcraft2/".Length);
-                page = Uri.UnescapeDataString(page);
+                url = "http://wiki.teamliquid.net/starcraft2/api.php?format=xml&action=query&titles=" +
+                    page.Replace("%20", " ").Replace(" ", "_") + "&prop=revisions&rvprop=content";
             }
-
-            // get page data
-            string url = "http://wiki.teamliquid.net/starcraft2/api.php?format=xml&action=query&titles=" +
-                Uri.EscapeUriString(page.Replace("%20", " ").Replace(" ", "_")) + "&prop=revisions&rvprop=content";
-
             // if it's a bw link, extract the page title and get the data
-            if (Uri.TryCreate(page, UriKind.Absolute, out uri) &&
+            else if (Uri.TryCreate(page, UriKind.Absolute, out uri) &&
                 uri.Host.ToLower() == "wiki.teamliquid.net" &&
                 uri.AbsolutePath.StartsWith("/starcraft/"))
             {
-                page = Uri.EscapeUriString(uri.AbsolutePath.Substring("/starcraft/".Length));
-                page = Uri.UnescapeDataString(page);
+                page = uri.AbsolutePath.Substring("/starcraft/".Length);
                 url = "http://wiki.teamliquid.net/starcraft/api.php?format=xml&action=query&titles=" +
+                    page.Replace("%20", " ").Replace(" ", "_") + "&prop=revisions&rvprop=content";
+            }
+            // if it's plain text, assume it's a sc2 page
+            else
+            {
+                page = Uri.EscapeUriString(page);
+                url = "http://wiki.teamliquid.net/starcraft2/api.php?format=xml&action=query&titles=" +
                     Uri.EscapeUriString(page.Replace("%20", " ").Replace(" ", "_")) + "&prop=revisions&rvprop=content";
             }
             
