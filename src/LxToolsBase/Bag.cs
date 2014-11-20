@@ -53,6 +53,14 @@ namespace LxTools
         {
             dict.Merge(other.dict, replace);
         }
+        public static Bag MergeGrouping<TKey, TElement>(this Bag bag, IGrouping<TKey, TElement> lookup, Func<TElement, string> key, Func<TElement, string> value)
+        {
+            foreach (var item in lookup)
+            {
+                bag[key(item)] = value(item);
+            }
+            return bag;
+        }
 
         public bool ContainsKey(string key)
         {
