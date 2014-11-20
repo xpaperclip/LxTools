@@ -48,6 +48,7 @@ namespace LxTools.Liquipedia
                 uri.AbsolutePath.StartsWith("/starcraft2/"))
             {
                 page = uri.AbsolutePath.Substring("/starcraft2/".Length);
+                page = Uri.UnescapeDataString(page);
             }
 
             // get page data
@@ -59,7 +60,8 @@ namespace LxTools.Liquipedia
                 uri.Host.ToLower() == "wiki.teamliquid.net" &&
                 uri.AbsolutePath.StartsWith("/starcraft/"))
             {
-                page = uri.AbsolutePath.Substring("/starcraft/".Length);
+                page = Uri.EscapeUriString(uri.AbsolutePath.Substring("/starcraft/".Length));
+                page = Uri.UnescapeDataString(page);
                 url = "http://wiki.teamliquid.net/starcraft/api.php?format=xml&action=query&titles=" +
                     Uri.EscapeUriString(page.Replace("%20", " ").Replace(" ", "_")) + "&prop=revisions&rvprop=content";
             }
