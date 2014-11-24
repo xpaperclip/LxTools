@@ -35,6 +35,7 @@ namespace LxTools.Liquipedia
             {
                 using (WebClient wc = new WebClient())
                 {
+                    wc.Encoding = System.Text.Encoding.UTF8;
                     string text = wc.DownloadString(page);
                     text = text.TrimBetween("<textarea", "</textarea>").From(">").Replace("&lt;", "<").Replace("&amp;", "&");
                     return text;
